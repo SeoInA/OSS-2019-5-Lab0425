@@ -1,16 +1,20 @@
 #!/bin/bash
 
 prev=a
+txt="Spoiler Alert!"
 
 while ((1))
 do
-	if [[ -e log.txt ]]
-	then
+	if [[ -e log.txt ]];then
 		cur=$( tail -n 1 log.txt )
-		if [[ $cur != $prev ]] 
-		then
-			echo $cur
+		if [[ $cur != $prev ]];then
+			if [[ "$cur" =~ ^-?[0-9]+$ ]];then
+				echo $cur
+			else
+				echo $txt
+			fi
 			prev=$cur
+		
 		fi
-	fi
+	fi	
 done

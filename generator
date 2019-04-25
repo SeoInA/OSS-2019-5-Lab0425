@@ -13,6 +13,7 @@ do
 	then
 		echo "$SECONDS"
 		echo >> log.txt "$SECONDS"
+		sleep 1
 		start=$SECONDS
 		
 		RAND=$RANDOM
